@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+        <title>Capture in VR</title>
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+<body>
+<input name="character" id="char"/>
+<script>
+document.onkeypress = function(e) {
+    e = e || window.event;
+    console.log(e);
+    e.preventDefault();
+    var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+    if (charCode > 0) {
+        $.get("http://127.0.0.1:2000/update/" + String.fromCharCode(charCode));
+    }
+};
+</script>
+</body>
+</html>
